@@ -1,0 +1,141 @@
+// Заголовки, загальні БЕМ блоки та інше...
+//Animate========================================================================================================================================================
+%animate {
+   transform: translate(0, -30px);
+   opacity: 0;
+   &._watcher-view {
+      transform: translate(0, 0);
+      opacity: 1;
+      transition: all 0.8s ease 0s;
+   }
+}
+%animateTwo {
+   transform: translate(0, -30px);
+   opacity: 0;
+   &._watcher-view {
+      transform: translate(0, 0);
+      opacity: 1;
+      @for $var from 1 to 50 {
+         $delay: $var * 0.1;
+         &:nth-child(#{$var}) {
+            @if $var == 1 {
+               transition: all 0.8s ease 0s;
+            } @else {
+               transition: all 0.8s ease #{$delay + s};
+            }
+         }
+      }
+   }
+}
+//Button========================================================================================================================================================
+.button {
+   @include adaptiveValue("padding-top", 16, 12);
+   @include adaptiveValue("padding-bottom", 16, 12);
+   @include adaptiveValue("padding-left", 29.21, 18);
+   @include adaptiveValue("padding-right", 29.21, 18);
+   display: inline-block;
+   text-align: center;
+   background-color: $blueColor;
+   border-radius: 50px;
+   font-size: rem(14);
+   font-weight: 500;
+   color: $whiteColor;
+   line-height: math.div(22 , 14);
+   letter-spacing: rem(2);
+   @include adaptiveValue("letter-spacing", 2, 1, $containerWidth, 479.98);
+   transition: all 0.3s;
+   &:hover{
+      background-color: #4884c5;
+   }
+   &_dark {
+      background-color: rgba(129, 129, 139, 0.2);
+      &:hover {
+         background-color: rgba(129, 129, 139, 0.4);
+      }
+   }
+}
+//Page========================================================================================================================================================
+.page {
+   // .page__main
+   &__main {
+   }
+
+   // .page__companies
+   &__companies {
+   }
+
+   // .page__services
+   &__services {
+   }
+
+   // .page__choose
+   &__choose {
+   }
+
+   // .page__advanrages
+   &__advanrages {
+   }
+
+   // .page__reviews
+   &__reviews {
+   }
+
+   // .page__blog
+   &__blog {
+   }
+
+   // .page__start
+   &__start {
+   }
+}
+//Block========================================================================================================================================================
+.block {
+   // .block__sup-title
+   &__sup-title {
+      display: inline-block;
+      padding: rem(11) rem(19);
+      font-size: rem(10.8);
+      line-height: math.div(17, 10.8);
+      letter-spacing: rem(2);
+      text-transform: uppercase;
+      border: 1px solid rgba(129, 129, 139, 0.2);
+      border-radius: rem(12);
+      @extend %animate;
+   }
+   // .block__header
+   &__header {
+   }
+   // .block__title
+   &__title {
+      color: $whiteColor;
+      @include adaptiveValue("font-size", 51.2, 28, 0, $containerWidth, 479.98);
+      line-height: math.div(61 , 51.2);
+      font-weight: 500;
+      @extend %animate;
+      transition: all 0.8s ease 0.1s;
+   }
+   // .block__text
+   &__text {
+      @include adaptiveValue("font-size", 18, 16, 0, $containerWidth, 767.98);
+      line-height: $lh;
+      color: $mainColor;
+      @extend %animate;
+      transition: all 0.8s ease 0.2s;
+   }
+   // .block__actions
+   &__actions {
+      display: flex;
+      row-gap: rem(20);
+      @include adaptiveValue("column-gap", 32, 20, 0, $containerWidth, 767.98);
+      @extend %animate;
+      transition: all 0.8s ease 0.3s;
+   }
+   // .block__button
+   &__button {
+   }
+}
+//Animation========================================================================================================================================================
+
+//========================================================================================================================================================
+
+//========================================================================================================================================================
